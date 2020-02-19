@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.hotspot_recycler)
     RecyclerView hotspot_rv;
+    @BindView(R.id.events_recycler)
+    RecyclerView events_rv;
+    @BindView(R.id.attractions_recycler)
+    RecyclerView attractions_rv;
 
     private List<HotSpotsModel> hotSpotsModels;
     private List<EventsModel> eventsModels;
@@ -47,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 this.attractionsModels = mainModel.getData().getAttractions();
 
                 setRV_hotspot(hotSpotsModels);
+                setRV_events(eventsModels);
+                setRV_attractions(attractionsModels);
             }
         });
     }
@@ -56,6 +62,22 @@ public class MainActivity extends AppCompatActivity {
         HotSpotsAdapter hotSpotsAdapter = new HotSpotsAdapter(MainActivity.this, hotSpotsModels);
         hotspot_rv.setAdapter(hotSpotsAdapter);
         hotspot_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+    }
+
+
+    private void setRV_events(List<EventsModel> eventsModels) {
+
+        EventsAdapter eventsAdapter = new EventsAdapter(MainActivity.this, eventsModels);
+        events_rv.setAdapter(eventsAdapter);
+        events_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+    }
+
+
+    private void setRV_attractions(List<AttractionsModel> attractionsModels) {
+
+        AttractionsAdapter attractionsAdapter = new AttractionsAdapter(MainActivity.this, attractionsModels);
+        attractions_rv.setAdapter(attractionsAdapter);
+        attractions_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
     }
 
 }

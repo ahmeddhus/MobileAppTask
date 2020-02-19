@@ -15,8 +15,8 @@ import com.example.mobileapptask.databinding.HotspotItemBinding;
 
 import java.util.List;
 
-public class HotSpotsAdapter extends RecyclerView.Adapter<HotSpotsAdapter.ItemViewHolder>
-{
+public class HotSpotsAdapter extends RecyclerView.Adapter<HotSpotsAdapter.ItemViewHolder> {
+
     private Context context;
     private List<HotSpotsModel> items;
 

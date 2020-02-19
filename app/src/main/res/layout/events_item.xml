@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.example.mobileapptask.data.models.HotSpotsModel" />
+            type="com.example.mobileapptask.data.models.EventsModel" />
     </data>
 
     <LinearLayout
@@ -38,5 +38,6 @@
             android:textSize="14sp" />
 
     </LinearLayout>
+
 
 </layout>
