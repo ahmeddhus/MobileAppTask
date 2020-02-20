@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout map_floating;
 
     boolean shown = false;
-    private Animation fab_open, fab_close;
+    private Animation fab_open_home ,fab_open_events, fab_open_attractions, fab_open_map, fab_close_home, fab_close_events, fab_close_attractions, fab_close_map;
 
     private List<HotSpotsModel> hotSpotsModels;
     private List<EventsModel> eventsModels;
@@ -75,8 +75,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         ButterKnife.bind(this);
-        fab_close = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);
-        fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
+
+        fab_open_home = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_home);
+        fab_open_events = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_events);
+        fab_open_attractions = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_attractions);
+        fab_open_map = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_map);
+
+        fab_close_home = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_home);
+        fab_close_events = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_events);
+        fab_close_attractions = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_attractions);
+        fab_close_map = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_map);
     }
 
     private void getData() {
@@ -129,16 +137,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void openFloatingButtons() {
         hotspot_floating.setVisibility(View.VISIBLE);
-        hotspot_floating.startAnimation(fab_open);
-
-        attractions_floating.setVisibility(View.VISIBLE);
-        attractions_floating.startAnimation(fab_open);
+        hotspot_floating.startAnimation(fab_open_home);
 
         events_floating.setVisibility(View.VISIBLE);
-        events_floating.startAnimation(fab_open);
+        events_floating.startAnimation(fab_open_events);
+
+        attractions_floating.setVisibility(View.VISIBLE);
+        attractions_floating.startAnimation(fab_open_attractions);
 
         map_floating.setVisibility(View.VISIBLE);
-        map_floating.startAnimation(fab_open);
+        map_floating.startAnimation(fab_open_map);
 
         linearLayout.setAlpha((float) 0.4);
         bottomnavigation_layout.setAlpha((float) 0.4);
@@ -149,16 +157,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void closeFloatingButtons() {
         hotspot_floating.setVisibility(View.GONE);
-        hotspot_floating.startAnimation(fab_close);
-
-        attractions_floating.setVisibility(View.GONE);
-        attractions_floating.startAnimation(fab_close);
+        hotspot_floating.startAnimation(fab_close_home);
 
         events_floating.setVisibility(View.GONE);
-        events_floating.startAnimation(fab_close);
+        events_floating.startAnimation(fab_close_events);
+
+        attractions_floating.setVisibility(View.GONE);
+        attractions_floating.startAnimation(fab_close_attractions);
 
         map_floating.setVisibility(View.GONE);
-        map_floating.startAnimation(fab_close);
+        map_floating.startAnimation(fab_close_map);
 
         linearLayout.setAlpha(1);
         bottomnavigation_layout.setAlpha(1);
