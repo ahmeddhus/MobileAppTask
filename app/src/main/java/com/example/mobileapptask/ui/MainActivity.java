@@ -61,34 +61,18 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout map_floating;
 
     boolean shown = false;
-    private Animation fab_open_home ,fab_open_events, fab_open_attractions, fab_open_map, fab_close_home, fab_close_events, fab_close_attractions, fab_close_map;
 
     private List<HotSpotsModel> hotSpotsModels;
     private List<EventsModel> eventsModels;
     private List<AttractionsModel> attractionsModels;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-        getData();
-    }
-
-    private void init() {
         ButterKnife.bind(this);
-
-        fab_open_home = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_home);
-        fab_open_events = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_events);
-        fab_open_attractions = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_attractions);
-        fab_open_map = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open_map);
-
-        fab_close_home = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_home);
-        fab_close_events = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_events);
-        fab_close_attractions = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_attractions);
-        fab_close_map = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close_map);
+        getData();
     }
 
     private void getData() {
@@ -142,28 +126,24 @@ public class MainActivity extends AppCompatActivity {
     private void openFloatingButtons() {
 
         hotspot_floating.setVisibility(View.VISIBLE);
-        hotspot_floating.startAnimation(fab_open_home);
-//        YoYo.with(Techniques.BounceIn)
-//                .duration(100)
-//                .playOn(hotspot_floating);
+        YoYo.with(Techniques.BounceIn)
+                .duration(100)
+                .playOn(hotspot_floating);
 
         events_floating.setVisibility(View.VISIBLE);
-        events_floating.startAnimation(fab_open_events);
-//        YoYo.with(Techniques.BounceIn)
-//                .duration(200)
-//                .playOn(events_floating);
+        YoYo.with(Techniques.BounceIn)
+                .duration(200)
+                .playOn(events_floating);
 
         attractions_floating.setVisibility(View.VISIBLE);
-        attractions_floating.startAnimation(fab_open_attractions);
-//        YoYo.with(Techniques.BounceIn)
-//                .duration(300)
-//                .playOn(attractions_floating);
+        YoYo.with(Techniques.BounceIn)
+                .duration(300)
+                .playOn(attractions_floating);
 
         map_floating.setVisibility(View.VISIBLE);
-        map_floating.startAnimation(fab_open_map);
-//        YoYo.with(Techniques.BounceIn)
-//                .duration(400)
-//                .playOn(map_floating);
+        YoYo.with(Techniques.BounceIn)
+                .duration(400)
+                .playOn(map_floating);
 
         linearLayout.setAlpha((float) 0.4);
         bottomnavigation_layout.setAlpha((float) 0.4);
@@ -173,18 +153,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void closeFloatingButtons() {
-        hotspot_floating.setVisibility(View.GONE);
-        hotspot_floating.startAnimation(fab_close_home);
 
-        events_floating.setVisibility(View.GONE);
-        events_floating.startAnimation(fab_close_events);
+        YoYo.with(Techniques.FadeOut)
+                .duration(200)
+                .playOn(hotspot_floating);
 
-        attractions_floating.setVisibility(View.GONE);
-        attractions_floating.startAnimation(fab_close_attractions);
+        YoYo.with(Techniques.FadeOut)
+                .duration(150)
+                .playOn(events_floating);
 
-        map_floating.setVisibility(View.GONE);
-        map_floating.startAnimation(fab_close_map);
+        YoYo.with(Techniques.FadeOut)
+                .duration(100)
+                .playOn(attractions_floating);
 
+        YoYo.with(Techniques.FadeOut)
+                .duration(50)
+                .playOn(map_floating);
         linearLayout.setAlpha(1);
         bottomnavigation_layout.setAlpha(1);
 
