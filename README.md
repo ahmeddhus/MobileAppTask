@@ -1,5 +1,5 @@
 ## MobileAppTask
-![Alt Text](https://i.imgur.com/erWO9Ci.gif)
+![Alt Text](https://i.imgur.com/lUwk2f3.gif)
 
 
 
