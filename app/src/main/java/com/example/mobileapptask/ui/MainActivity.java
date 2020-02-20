@@ -2,22 +2,25 @@ package com.example.mobileapptask.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.mobileapptask.R;
 import com.example.mobileapptask.data.models.AttractionsModel;
 import com.example.mobileapptask.data.models.EventsModel;
 import com.example.mobileapptask.data.models.HotSpotsModel;
 import com.example.mobileapptask.viewmodel.TheViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +30,17 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView events_rv;
     @BindView(R.id.attractions_recycler)
     RecyclerView attractions_rv;
+
+    @BindView(R.id.hotspot_floating)
+    FloatingActionButton hotspot_floatin;
+    @BindView(R.id.attractions_floating)
+    FloatingActionButton attractions_floating;
+    @BindView(R.id.events_floating)
+    FloatingActionButton events_floating;
+    @BindView(R.id.map_floating)
+    FloatingActionButton map_floating;
+
+    boolean shown = false;
 
     private List<HotSpotsModel> hotSpotsModels;
     private List<EventsModel> eventsModels;
@@ -64,14 +78,12 @@ public class MainActivity extends AppCompatActivity {
         hotspot_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
     }
 
-
     private void setRV_events(List<EventsModel> eventsModels) {
 
         EventsAdapter eventsAdapter = new EventsAdapter(MainActivity.this, eventsModels);
         events_rv.setAdapter(eventsAdapter);
         events_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
     }
-
 
     private void setRV_attractions(List<AttractionsModel> attractionsModels) {
 
@@ -80,4 +92,36 @@ public class MainActivity extends AppCompatActivity {
         attractions_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
     }
 
+    @OnClick(R.id.floatingActionButton)
+    public void floatingAction() {
+        if (!shown) {
+            hotspot_floatin.setVisibility(View.VISIBLE);
+            attractions_floating.setVisibility(View.VISIBLE);
+            events_floating.setVisibility(View.VISIBLE);
+            map_floating.setVisibility(View.VISIBLE);
+            shown = true;
+        } else {
+            hotspot_floatin.setVisibility(View.GONE);
+            attractions_floating.setVisibility(View.GONE);
+            events_floating.setVisibility(View.GONE);
+            map_floating.setVisibility(View.GONE);
+            shown = false;
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
