@@ -120,42 +120,54 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.floatingActionButton)
     public void floatingAction() {
         if (!shown) {
-            hotspot_floating.setVisibility(View.VISIBLE);
-            hotspot_floating.startAnimation(fab_open);
+            openFloatingButtons();
 
-            attractions_floating.setVisibility(View.VISIBLE);
-            attractions_floating.startAnimation(fab_open);
-
-            events_floating.setVisibility(View.VISIBLE);
-            events_floating.startAnimation(fab_open);
-
-            map_floating.setVisibility(View.VISIBLE);
-            map_floating.startAnimation(fab_open);
-
-            linearLayout.setAlpha((float) 0.4);
-            bottomnavigation_layout.setAlpha((float) 0.4);
-            shown = true;
         } else {
-            hotspot_floating.setVisibility(View.GONE);
-            hotspot_floating.startAnimation(fab_close);
-
-            attractions_floating.setVisibility(View.GONE);
-            attractions_floating.startAnimation(fab_close);
-
-            events_floating.setVisibility(View.GONE);
-            events_floating.startAnimation(fab_close);
-
-            map_floating.setVisibility(View.GONE);
-            map_floating.startAnimation(fab_close);
-
-            linearLayout.setAlpha(1);
-            bottomnavigation_layout.setAlpha(1);
-            shown = false;
+            closeFloatingButtons();
         }
     }
 
+    private void openFloatingButtons() {
+        hotspot_floating.setVisibility(View.VISIBLE);
+        hotspot_floating.startAnimation(fab_open);
+
+        attractions_floating.setVisibility(View.VISIBLE);
+        attractions_floating.startAnimation(fab_open);
+
+        events_floating.setVisibility(View.VISIBLE);
+        events_floating.startAnimation(fab_open);
+
+        map_floating.setVisibility(View.VISIBLE);
+        map_floating.startAnimation(fab_open);
+
+        linearLayout.setAlpha((float) 0.4);
+        bottomnavigation_layout.setAlpha((float) 0.4);
+
+        shown = true;
+    }
+
+
+    private void closeFloatingButtons() {
+        hotspot_floating.setVisibility(View.GONE);
+        hotspot_floating.startAnimation(fab_close);
+
+        attractions_floating.setVisibility(View.GONE);
+        attractions_floating.startAnimation(fab_close);
+
+        events_floating.setVisibility(View.GONE);
+        events_floating.startAnimation(fab_close);
+
+        map_floating.setVisibility(View.GONE);
+        map_floating.startAnimation(fab_close);
+
+        linearLayout.setAlpha(1);
+        bottomnavigation_layout.setAlpha(1);
+
+        shown = false;
+    }
+
     @OnClick({R.id.home_bottom})
-    public void homeBottom_action(){
+    public void homeBottom_action() {
         home_bottom.setImageResource(R.drawable.home_bottom_icon);
         search_bottom.setImageResource(R.drawable.search_grey_bottom_icon);
         notifications_bottom.setImageResource(R.drawable.notification_grey_bottom_icon);
@@ -163,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.search_bottom})
-    public void searchBottom_action(){
+    public void searchBottom_action() {
         home_bottom.setImageResource(R.drawable.home_grey_bottom_icon);
         search_bottom.setImageResource(R.drawable.search_bottom_icon);
         notifications_bottom.setImageResource(R.drawable.notification_grey_bottom_icon);
@@ -171,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.notifications_bottom})
-    public void notificationsBottom_action(){
+    public void notificationsBottom_action() {
         home_bottom.setImageResource(R.drawable.home_grey_bottom_icon);
         search_bottom.setImageResource(R.drawable.search_grey_bottom_icon);
         notifications_bottom.setImageResource(R.drawable.notification_bottom_icon);
@@ -179,11 +191,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.profile_bottom})
-    public void profileBottom_action(){
+    public void profileBottom_action() {
         home_bottom.setImageResource(R.drawable.home_grey_bottom_icon);
         search_bottom.setImageResource(R.drawable.search_grey_bottom_icon);
         notifications_bottom.setImageResource(R.drawable.notification_grey_bottom_icon);
         profile_bottom.setImageResource(R.drawable.profile_bottom_icon);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (shown)
+            closeFloatingButtons();
+        else
+            super.onBackPressed();
     }
 }
 
