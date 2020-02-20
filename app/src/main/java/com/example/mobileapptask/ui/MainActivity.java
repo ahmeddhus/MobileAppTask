@@ -1,17 +1,15 @@
 package com.example.mobileapptask.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.mobileapptask.R;
@@ -38,12 +36,21 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.linearlayout_main)
     LinearLayout linearLayout;
 
+    //BottomNavigation
     @BindView(R.id.bottom_navigation)
     LinearLayout bottomnavigation_layout;
+    @BindView(R.id.home_bottom)
+    ImageView home_bottom;
+    @BindView(R.id.search_bottom)
+    ImageView search_bottom;
+    @BindView(R.id.notifications_bottom)
+    ImageView notifications_bottom;
+    @BindView(R.id.profile_bottom)
+    ImageView profile_bottom;
 
     //Floating action buttons
     @BindView(R.id.hotspot_floating)
-    LinearLayout hotspot_floatin;
+    LinearLayout hotspot_floating;
     @BindView(R.id.attractions_floating)
     LinearLayout attractions_floating;
     @BindView(R.id.events_floating)
@@ -113,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.floatingActionButton)
     public void floatingAction() {
         if (!shown) {
-            hotspot_floatin.setVisibility(View.VISIBLE);
-            hotspot_floatin.startAnimation(fab_open);
+            hotspot_floating.setVisibility(View.VISIBLE);
+            hotspot_floating.startAnimation(fab_open);
 
             attractions_floating.setVisibility(View.VISIBLE);
             attractions_floating.startAnimation(fab_open);
@@ -129,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
             bottomnavigation_layout.setAlpha((float) 0.4);
             shown = true;
         } else {
-            hotspot_floatin.setVisibility(View.GONE);
-            hotspot_floatin.startAnimation(fab_close);
+            hotspot_floating.setVisibility(View.GONE);
+            hotspot_floating.startAnimation(fab_close);
 
             attractions_floating.setVisibility(View.GONE);
             attractions_floating.startAnimation(fab_close);
@@ -145,6 +152,38 @@ public class MainActivity extends AppCompatActivity {
             bottomnavigation_layout.setAlpha(1);
             shown = false;
         }
+    }
+
+    @OnClick({R.id.home_bottom})
+    public void homeBottom_action(){
+        home_bottom.setImageResource(R.drawable.home_bottom_icon);
+        search_bottom.setImageResource(R.drawable.search_grey_bottom_icon);
+        notifications_bottom.setImageResource(R.drawable.notification_grey_bottom_icon);
+        profile_bottom.setImageResource(R.drawable.profile_grey_bottom_icon);
+    }
+
+    @OnClick({R.id.search_bottom})
+    public void searchBottom_action(){
+        home_bottom.setImageResource(R.drawable.home_grey_bottom_icon);
+        search_bottom.setImageResource(R.drawable.search_bottom_icon);
+        notifications_bottom.setImageResource(R.drawable.notification_grey_bottom_icon);
+        profile_bottom.setImageResource(R.drawable.profile_grey_bottom_icon);
+    }
+
+    @OnClick({R.id.notifications_bottom})
+    public void notificationsBottom_action(){
+        home_bottom.setImageResource(R.drawable.home_grey_bottom_icon);
+        search_bottom.setImageResource(R.drawable.search_grey_bottom_icon);
+        notifications_bottom.setImageResource(R.drawable.notification_bottom_icon);
+        profile_bottom.setImageResource(R.drawable.profile_grey_bottom_icon);
+    }
+
+    @OnClick({R.id.profile_bottom})
+    public void profileBottom_action(){
+        home_bottom.setImageResource(R.drawable.home_grey_bottom_icon);
+        search_bottom.setImageResource(R.drawable.search_grey_bottom_icon);
+        notifications_bottom.setImageResource(R.drawable.notification_grey_bottom_icon);
+        profile_bottom.setImageResource(R.drawable.profile_bottom_icon);
     }
 }
 
