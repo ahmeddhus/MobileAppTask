@@ -12,6 +12,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.mobileapptask.R;
 import com.example.mobileapptask.data.models.AttractionsModel;
 import com.example.mobileapptask.data.models.EventsModel;
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
     private List<HotSpotsModel> hotSpotsModels;
     private List<EventsModel> eventsModels;
     private List<AttractionsModel> attractionsModels;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,17 +140,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openFloatingButtons() {
+
         hotspot_floating.setVisibility(View.VISIBLE);
         hotspot_floating.startAnimation(fab_open_home);
+//        YoYo.with(Techniques.BounceIn)
+//                .duration(100)
+//                .playOn(hotspot_floating);
 
         events_floating.setVisibility(View.VISIBLE);
         events_floating.startAnimation(fab_open_events);
+//        YoYo.with(Techniques.BounceIn)
+//                .duration(200)
+//                .playOn(events_floating);
 
         attractions_floating.setVisibility(View.VISIBLE);
         attractions_floating.startAnimation(fab_open_attractions);
+//        YoYo.with(Techniques.BounceIn)
+//                .duration(300)
+//                .playOn(attractions_floating);
 
         map_floating.setVisibility(View.VISIBLE);
         map_floating.startAnimation(fab_open_map);
+//        YoYo.with(Techniques.BounceIn)
+//                .duration(400)
+//                .playOn(map_floating);
 
         linearLayout.setAlpha((float) 0.4);
         bottomnavigation_layout.setAlpha((float) 0.4);
