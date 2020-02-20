@@ -3,7 +3,6 @@
 
 
 
-
 ## In this project
 [AndroidX](https://developer.android.com/jetpack/androidx)  
 [Android Jetpack](https://developer.android.com/jetpack/docs/getting-started)  
