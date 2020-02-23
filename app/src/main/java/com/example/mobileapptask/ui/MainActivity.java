@@ -94,21 +94,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void setRV_hotspot(List<HotSpotsModel> hotSpotsModels) {
 
-        HotSpotsAdapter hotSpotsAdapter = new HotSpotsAdapter(MainActivity.this, hotSpotsModels);
+        HotSpotsAdapter hotSpotsAdapter = new HotSpotsAdapter(hotSpotsModels);
         hotspot_rv.setAdapter(hotSpotsAdapter);
         hotspot_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setRV_events(List<EventsModel> eventsModels) {
 
-        EventsAdapter eventsAdapter = new EventsAdapter(MainActivity.this, eventsModels);
+        EventsAdapter eventsAdapter = new EventsAdapter(eventsModels);
         events_rv.setAdapter(eventsAdapter);
         events_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setRV_attractions(List<AttractionsModel> attractionsModels) {
 
-        AttractionsAdapter attractionsAdapter = new AttractionsAdapter(MainActivity.this, attractionsModels);
+        AttractionsAdapter attractionsAdapter = new AttractionsAdapter(attractionsModels);
         attractions_rv.setAdapter(attractionsAdapter);
         attractions_rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
     }

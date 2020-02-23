@@ -17,11 +17,9 @@ import java.util.List;
 
 public class AttractionsAdapter extends RecyclerView.Adapter<AttractionsAdapter.ItemViewHolder> {
 
-    private Context context;
     private List<AttractionsModel> items;
 
-    public AttractionsAdapter(Context context, List<AttractionsModel> items) {
-        this.context = context;
+    public AttractionsAdapter(List<AttractionsModel> items) {
         this.items = items;
     }
 

@@ -17,11 +17,9 @@ import java.util.List;
 
 public class HotSpotsAdapter extends RecyclerView.Adapter<HotSpotsAdapter.ItemViewHolder> {
 
-    private Context context;
     private List<HotSpotsModel> items;
 
-    public HotSpotsAdapter(Context context, List<HotSpotsModel> items) {
-        this.context = context;
+    public HotSpotsAdapter(List<HotSpotsModel> items) {
         this.items = items;
     }
 
