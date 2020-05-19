@@ -1,7 +1,6 @@
 ## MobileAppTask
-![Alt Text](https://i.imgur.com/lUwk2f3.gif)
 
-
+![Alt Text](https://i.imgur.com/lUwk2f3l.gif)
 
 ## In this project
 [AndroidX](https://developer.android.com/jetpack/androidx)  
