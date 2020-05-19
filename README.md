@@ -1,6 +1,6 @@
 ## MobileAppTask
 
-![Alt Text](https://i.imgur.com/lUwk2f3l.gif)
+<a href="https://imgur.com/lUwk2f3"><img src="https://i.imgur.com/lUwk2f3.gif" title="source: imgur.com" /></a>
 
 ## In this project
 [AndroidX](https://developer.android.com/jetpack/androidx)  
